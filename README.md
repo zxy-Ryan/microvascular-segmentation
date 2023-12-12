@@ -133,16 +133,15 @@ The figure below shows the basic architecture of a DeepLabv3 network, where the 
 
 ## 1. Main results: Describe the main experimental results you have; this is where you highlight the most interesting findings.
 
-Performance
-
-Loss
+**Loss**
 
 ![Example Image](images/Loss.png)
 
 Minimum Loss: 0.035
 Minimum Loss Iter: 26050
 
-Accuracy
+**Accuracy**
+
 To evaluate the accuracy of the performance, we used 3 types of scores: aAcc, mDice, and mAcc.
 
 "aAcc," "Dice," and "mAcc" are metrics commonly used in fields like medical imaging, computer vision, and particularly in tasks like image segmentation.
@@ -158,25 +157,20 @@ mAcc (Mean Accuracy) is another metric used to evaluate the performance of a cla
 
 ![Example Image](images/Results.png)
 
-Scores for each class
+**Scores for each class**
 
-Class
-Dice
-Acc
-background
-97.91
-97.41
-blood_vessel
-63.36
-70.32
-glomerulus
-96.22
-96.03
+| Class        | Dice  | Acc   |
+| ------------ | ----- | ----- |
+| background   | 97.91 | 97.41 |
+| blood_vessel | 63.36 | 70.32 |
+| glomerulus   | 96.22 | 96.03 |
 
 Total Accuracy:
+
 aAcc: 96.1800 mDice: 85.8300 mAcc: 87.9200
 
-Comparison with other models
+**Comparison with other models**
+
 We compared our result with others' results on the same dataset. https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report#7.-Analysis-of-Validation-Result
 
 They used IoU to evaluate their models. They performed UNET and FCN on the dataset and used IoU to evaluate their models. So we calculated the IoU of our DeepLab model for comparison.
@@ -185,92 +179,98 @@ Intersection over Union (IoU) is a fundamental metric used in the field of compu
 
 The comparison is as follows:
 
-Model
-FCN
-UNET
-DeepLab
-IoU
-0.36
-0.37
-0.43
+| Model | FCN  | UNET | DeepLab |
+| ----- | ---- | ---- | ------- |
+| IoU   | 0.36 | 0.37 | 0.43    |
 
-Segmentation Results
+**Segmentation Results**
+![Example Image](images/Seg1.png)
+![Example Image](images/Seg2.png)
+![Example Image](images/Seg3.png)
+![Example Image](images/Seg4.png)
+![Example Image](images/Seg5.png)
 
-2.                           Supplementary results:
-    Parameter choices
-    Cross Entropy: class weight: 0.5, 2, 1
-    Focal loss: alpha: 0.25, 1, 0.75
-    Cross Entropy: loss weight: 0.4
-    Focal loss: loss weight: 1
-    Learning rate: 0.005
-    Optimizer: SGD
-    batch size: 2
-    iteration: 31000
+## 2. Supplementary results:
 
-Class
-Dice
-Acc
-background
-97.91
-97.41
-blood_vessel
-63.36
-70.32
-glomerulus
-96.22
-96.03
+Parameter choices
 
-Comparative Experiments
-Another parameter set we has tried:
-Cross Entropy: class weight: 0.1, 2, 1
-Focal loss: alpha: 0.25, 0.75, 0.75
+Cross Entropy: class weight: 0.5, 2, 1
+
+Focal loss: alpha: 0.25, 1, 0.75
+
 Cross Entropy: loss weight: 0.4
+
 Focal loss: loss weight: 1
 
-Class
-Dice
-Acc
-background
-0
-0
-blood_vessel
-9.6
-99.3
-glomerulus
-41.52
-95.58
+Learning rate: 0.005
 
-4.                           Discussion:
-    Strengths
-    The model shows high accuracy and Dice scores for 'background' and 'glomerulus' classes, indicating its effectiveness in these areas.
-    The performance on the 'blood_vessel' class, though satisfactory, is lower than the other classes. This is because of the nature of the dataset. Blood vessels in different parts of the kidney are not the same. In this dataset, there are tissues samples from the renal cortex, renal medulla and renal papilla. Moreover, The microvasculature structures are different in those three types of tissue.
+Optimizer: SGD
 
-Comparison with FCN and UNET
+batch size: 2
+
+iteration: 31000
+
+| Class        | Dice  | Acc   |
+| ------------ | ----- | ----- |
+| background   | 97.91 | 97.41 |
+| blood_vessel | 63.36 | 70.32 |
+| glomerulus   | 96.22 | 96.03 |
+
+Comparative Experiments
+
+Another parameter set we has tried:
+
+Cross Entropy: class weight: 0.1, 2, 1
+
+Focal loss: alpha: 0.25, 0.75, 0.75
+
+Cross Entropy: loss weight: 0.4
+
+Focal loss: loss weight: 1
+
+| Class        | Dice  | Acc   |
+| ------------ | ----- | ----- |
+| background   | 0     | 0     |
+| blood_vessel | 9.6   | 99.3  |
+| glomerulus   | 41.52 | 95.58 |
+
+# 4. Discussion:
+
+**Strengths**
+
+- The model shows high accuracy and Dice scores for 'background' and 'glomerulus' classes, indicating its effectiveness in these areas.
+
+- The performance on the 'blood_vessel' class, though satisfactory, is lower than the other classes. This is because of the nature of the dataset. Blood vessels in different parts of the kidney are not the same. In this dataset, there are tissues samples from the renal cortex, renal medulla and renal papilla. Moreover, The microvasculature structures are different in those three types of tissue.
+
+**Comparison with FCN and UNET**
+
 The model's Intersection over Union (IoU) score was compared with other models (FCN and UNET) on the same dataset. Your DeepLab model achieved the highest IoU of 0.43, surpassing FCN (0.36) and UNET (0.37). This suggests superior boundary overlap accuracy. There could be the following reasons:
 
-The DeepLab model's superior performance in IoU and other key metrics over FCN and UNET can be attributed to several strategic enhancements. Firstly, the DeepLab model inherently possesses architectural advantages that are conducive to more accurate semantic segmentation. This architecture is designed to efficiently capture multi-scale contextual information, which is crucial in delineating precise object boundaries in complex images.
-Additionally, the data preprocessing phase in this research was significantly augmented through extensive data augmentation techniques. By incorporating random scaling, random cropping, random flipping, and photometric distortion, the model was exposed to a more diverse set of training examples. This variety in the training dataset likely contributed to the model's enhanced ability to generalize and accurately segment images under various conditions and orientations, thereby improving its IoU score.
-Another pivotal aspect of the model's success is the innovative combination of cross entropy loss and focal loss used as the model's loss function. Cross entropy loss is a standard choice for classification tasks, effectively handling the basic segmentation challenges. However, the integration of focal loss is particularly beneficial in addressing the issue of class imbalance, a common challenge in semantic segmentation tasks. Focal loss places more emphasis on hard-to-classify examples, ensuring that the model does not become biased towards the dominant classes and pays adequate attention to all classes, including those that are underrepresented or more challenging to segment. This balanced approach towards learning is likely a key factor in achieving higher IoU scores, as it ensures more accurate predictions across all classes.
+- The DeepLab model's superior performance in IoU and other key metrics over FCN and UNET can be attributed to several strategic enhancements. Firstly, the DeepLab model inherently possesses architectural advantages that are conducive to more accurate semantic segmentation. This architecture is designed to efficiently capture multi-scale contextual information, which is crucial in delineating precise object boundaries in complex images.
 
-    Areas for Improvement
-    Despite the notable success of the DeepLab model in surpassing the IoU metrics of FCN and UNET, there remains room for further enhancement to achieve even greater accuracy and efficiency in semantic segmentation. Key areas for potential improvement include:
+- Additionally, the data preprocessing phase in this research was significantly augmented through extensive data augmentation techniques. By incorporating random scaling, random cropping, random flipping, and photometric distortion, the model was exposed to a more diverse set of training examples. This variety in the training dataset likely contributed to the model's enhanced ability to generalize and accurately segment images under various conditions and orientations, thereby improving its IoU score.
+- Another pivotal aspect of the model's success is the innovative combination of cross entropy loss and focal loss used as the model's loss function. Cross entropy loss is a standard choice for classification tasks, effectively handling the basic segmentation challenges. However, the integration of focal loss is particularly beneficial in addressing the issue of class imbalance, a common challenge in semantic segmentation tasks. Focal loss places more emphasis on hard-to-classify examples, ensuring that the model does not become biased towards the dominant classes and pays adequate attention to all classes, including those that are underrepresented or more challenging to segment. This balanced approach towards learning is likely a key factor in achieving higher IoU scores, as it ensures more accurate predictions across all classes.
 
-Class-Specific Optimization: While the overall performance is commendable, certain classes may still exhibit lower accuracy or Dice scores. Targeted improvements, such as class-specific training strategies or advanced data augmentation techniques tailored for these challenging classes, could enhance the model's precision across all categories.
-Computational Efficiency: Although the model achieves high accuracy, the complexity of the DeepLab architecture might impact the computational efficiency, particularly for large-scale or real-time applications. Exploring methods to streamline the model, such as pruning, quantization, or employing more efficient backbone networks, could reduce computational demands while maintaining high accuracy.
-Robustness to Varied Inputs: To further improve the model's robustness and adaptability, testing and training on a more diverse set of images, especially those with varying qualities and from different domains, could be beneficial. This could help in assessing and enhancing the model's generalization capabilities.
-Loss Function Refinement: While the combination of cross entropy loss and focal loss has shown promising results, continual experimentation with other loss functions or a more refined weighting strategy between these losses could yield even better segmentation outcomes.
-Deep Learning Innovations: Staying abreast of the latest advancements in deep learning and integrating novel neural network architectures, regularization techniques, or training methodologies could provide additional performance boosts.
+**Areas for Improvement**
 
-5.                           Conclusion: In several sentences, summarize what you have done in this project.
+Despite the notable success of the DeepLab model in surpassing the IoU metrics of FCN and UNET, there remains room for further enhancement to achieve even greater accuracy and efficiency in semantic segmentation. Key areas for potential improvement include:
+
+- Class-Specific Optimization: While the overall performance is commendable, certain classes may still exhibit lower accuracy or Dice scores. Targeted improvements, such as class-specific training strategies or advanced data augmentation techniques tailored for these challenging classes, could enhance the model's precision across all categories.
+- Computational Efficiency: Although the model achieves high accuracy, the complexity of the DeepLab architecture might impact the computational efficiency, particularly for large-scale or real-time applications. Exploring methods to streamline the model, such as pruning, quantization, or employing more efficient backbone networks, could reduce computational demands while maintaining high accuracy.
+- Robustness to Varied Inputs: To further improve the model's robustness and adaptability, testing and training on a more diverse set of images, especially those with varying qualities and from different domains, could be beneficial. This could help in assessing and enhancing the model's generalization capabilities.
+- Loss Function Refinement: While the combination of cross entropy loss and focal loss has shown promising results, continual experimentation with other loss functions or a more refined weighting strategy between these losses could yield even better segmentation outcomes.
+- Deep Learning Innovations: Staying abreast of the latest advancements in deep learning and integrating novel neural network architectures, regularization techniques, or training methodologies could provide additional performance boosts.
+
+# 5. Conclusion: In several sentences, summarize what you have done in this project.
 
 In this project, I employed the DeepLab model for semantic segmentation of microvessels and glomeruli in images. During data pre-processing, I applied extensive data augmentation techniques, including random scaling, random cropping, random flipping, and photometric distortion, along with data normalization. Throughout the training process, I utilized a custom loss function combining cross-entropy loss and focal loss, and employed Stochastic Gradient Descent (SGD) as the optimization algorithm. This approach resulted in the model achieving high accuracy and precision in segmenting the targeted structures, outperforming other models in key metrics such as IoU. This success highlights the effectiveness of the chosen methodologies in handling the complexities of microvascular and glomerular image segmentation.
 
-6.                           References: Put any links, papers, blog posts, or GitHub repositories that you have borrowed from/found useful here.
-    https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature
-    https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report
-    https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023
-    https://github.com/open-mmlab/mmsegmentation
+# 6. References: Put any links, papers, blog posts, or GitHub repositories that you have borrowed from/found useful here.
 
+https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature
+https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report
+https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023
+https://github.com/open-mmlab/mmsegmentation
 https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report#7.-Analysis-of-Validation-Result
 https://medium.com/@itberrios6/deeplabv3-c0c8c93d25a4
 https://arxiv.org/abs/1706.05587v3
