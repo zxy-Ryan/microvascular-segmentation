@@ -133,9 +133,9 @@ The figure below shows the basic architecture of a DeepLabv3 network, where the 
 
 ## 1. Main results: Describe the main experimental results you have; this is where you highlight the most interesting findings.
 
-    Performance
-    Loss
-
+Performance
+Loss
+![Example Image](images/Loss.png)
 Minimum Loss: 0.035
 Minimum Loss Iter: 26050
 
@@ -147,11 +147,11 @@ To evaluate the accuracy of the performance, we used 3 types of scores: aAcc, mD
 aAcc(Average Accuracy) represents the average accuracy across all classes in a classification task. In the context of image segmentation, this would mean calculating the accuracy for each class (i.e., how well the model can identify each specific class in the image) and then averaging these accuracies.
 
 Dice Coefficient (Dice Similarity Coefficient, DSC) is a statistical tool used to gauge the similarity of two samples. In image segmentation, it's often used to measure the similarity between the ground truth segmentation and the segmentation predicted by the model. The formula for the Dice Coefficient is
-
+![Example Image](images/Formula.png)
 A Dice Coefficient of 1 indicates perfect agreement between the predicted segmentation and the ground truth, while a coefficient of 0 indicates no overlap.
 
 mAcc (Mean Accuracy) is another metric used to evaluate the performance of a classification model. It's calculated as the average of the class-wise accuracy. In image segmentation, this means computing the accuracy for each segment or class separately and then taking the average of these accuracies. It differs from Average Accuracy in the way it normalizes or weights the accuracy of each class before averaging.
-
+![Example Image](images/Results)
 Scores for each class
 
 Class
@@ -190,7 +190,7 @@ IoU
 
 Segmentation Results
 
-2.                     Supplementary results:
+2.                        Supplementary results:
     Parameter choices
     Cross Entropy: class weight: 0.5, 2, 1
     Focal loss: alpha: 0.25, 1, 0.75
@@ -234,7 +234,7 @@ glomerulus
 41.52
 95.58
 
-4.                     Discussion:
+4.                        Discussion:
     Strengths
     The model shows high accuracy and Dice scores for 'background' and 'glomerulus' classes, indicating its effectiveness in these areas.
     The performance on the 'blood_vessel' class, though satisfactory, is lower than the other classes. This is because of the nature of the dataset. Blood vessels in different parts of the kidney are not the same. In this dataset, there are tissues samples from the renal cortex, renal medulla and renal papilla. Moreover, The microvasculature structures are different in those three types of tissue.
@@ -255,11 +255,11 @@ Robustness to Varied Inputs: To further improve the model's robustness and adapt
 Loss Function Refinement: While the combination of cross entropy loss and focal loss has shown promising results, continual experimentation with other loss functions or a more refined weighting strategy between these losses could yield even better segmentation outcomes.
 Deep Learning Innovations: Staying abreast of the latest advancements in deep learning and integrating novel neural network architectures, regularization techniques, or training methodologies could provide additional performance boosts.
 
-5.                     Conclusion: In several sentences, summarize what you have done in this project.
+5.                        Conclusion: In several sentences, summarize what you have done in this project.
 
 In this project, I employed the DeepLab model for semantic segmentation of microvessels and glomeruli in images. During data pre-processing, I applied extensive data augmentation techniques, including random scaling, random cropping, random flipping, and photometric distortion, along with data normalization. Throughout the training process, I utilized a custom loss function combining cross-entropy loss and focal loss, and employed Stochastic Gradient Descent (SGD) as the optimization algorithm. This approach resulted in the model achieving high accuracy and precision in segmenting the targeted structures, outperforming other models in key metrics such as IoU. This success highlights the effectiveness of the chosen methodologies in handling the complexities of microvascular and glomerular image segmentation.
 
-6.                     References: Put any links, papers, blog posts, or GitHub repositories that you have borrowed from/found useful here.
+6.                        References: Put any links, papers, blog posts, or GitHub repositories that you have borrowed from/found useful here.
     https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature
     https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report
     https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023
