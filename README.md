@@ -81,9 +81,10 @@ The training data includes Dataset 2 tiles from the public test WSI, but not fro
 ![Example Image](images/Picture28.png)
 
 **Size and quantity of Blood Vessels**
+
 Dataset 1 source 1 has a different distribution from others. It has fewer blood vessels, but their size is larger. Please note that one dot corresponds to one image in scatterplots.
 
-Reference：https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature/data
+##Reference##：https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature/data
 https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report
 https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023
 Training Data: The dataset includes 7033 samples, each with a resolution of 512 x 512 x 3 pixels and a data type of uint8​​.
