@@ -86,8 +86,9 @@ Dataset 1 source 1 has a different distribution from others. It has fewer blood 
 
 ![Example Image](images/SizeBlood1.png)
 ![Example Image](images/SizeBlood2.png)
-**Reference** ：https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature/data
-https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report
+**Reference** ：
+https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature/data<br/>
+https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report<br/>
 https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023
 
 **Training Data**: The dataset includes 7033 samples, each with a resolution of 512 x 512 x 3 pixels and a data type of uint8​​.
