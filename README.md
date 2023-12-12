@@ -127,9 +127,12 @@ CUDA 11.7
 This model will use atrous convolutions to capture multi-scale information and include an atrous spatial pyramid pooling module to robustly segment objects at multiple scales.
 
 The figure below shows the basic architecture of a DeepLabv3 network, where the main blocks are just the backbone and the head. Each of the main blocks is comprised of sub-blocks.
+![Example Image](images/Model.png)
 
-3.                   Results: Describe the results from your experiments.
-1.                   Main results: Describe the main experimental results you have; this is where you highlight the most interesting findings.
+# 3. Results: Describe the results from your experiments.
+
+## 1. Main results: Describe the main experimental results you have; this is where you highlight the most interesting findings.
+
     Performance
     Loss
 
@@ -187,7 +190,7 @@ IoU
 
 Segmentation Results
 
-2.                   Supplementary results:
+2.                     Supplementary results:
     Parameter choices
     Cross Entropy: class weight: 0.5, 2, 1
     Focal loss: alpha: 0.25, 1, 0.75
@@ -231,7 +234,7 @@ glomerulus
 41.52
 95.58
 
-4.                   Discussion:
+4.                     Discussion:
     Strengths
     The model shows high accuracy and Dice scores for 'background' and 'glomerulus' classes, indicating its effectiveness in these areas.
     The performance on the 'blood_vessel' class, though satisfactory, is lower than the other classes. This is because of the nature of the dataset. Blood vessels in different parts of the kidney are not the same. In this dataset, there are tissues samples from the renal cortex, renal medulla and renal papilla. Moreover, The microvasculature structures are different in those three types of tissue.
@@ -252,11 +255,11 @@ Robustness to Varied Inputs: To further improve the model's robustness and adapt
 Loss Function Refinement: While the combination of cross entropy loss and focal loss has shown promising results, continual experimentation with other loss functions or a more refined weighting strategy between these losses could yield even better segmentation outcomes.
 Deep Learning Innovations: Staying abreast of the latest advancements in deep learning and integrating novel neural network architectures, regularization techniques, or training methodologies could provide additional performance boosts.
 
-5.                   Conclusion: In several sentences, summarize what you have done in this project.
+5.                     Conclusion: In several sentences, summarize what you have done in this project.
 
 In this project, I employed the DeepLab model for semantic segmentation of microvessels and glomeruli in images. During data pre-processing, I applied extensive data augmentation techniques, including random scaling, random cropping, random flipping, and photometric distortion, along with data normalization. Throughout the training process, I utilized a custom loss function combining cross-entropy loss and focal loss, and employed Stochastic Gradient Descent (SGD) as the optimization algorithm. This approach resulted in the model achieving high accuracy and precision in segmenting the targeted structures, outperforming other models in key metrics such as IoU. This success highlights the effectiveness of the chosen methodologies in handling the complexities of microvascular and glomerular image segmentation.
 
-6.                   References: Put any links, papers, blog posts, or GitHub repositories that you have borrowed from/found useful here.
+6.                     References: Put any links, papers, blog posts, or GitHub repositories that you have borrowed from/found useful here.
     https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature
     https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report
     https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023
