@@ -100,19 +100,29 @@ https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023
 
 ## 2.Describe the experimental setup, including what models you are going to run, what parameters you plan to use, and what computing environment you will execute on.
 
-    Models: The experiment will involve running models like DeepLab(v3) within the PyTorch framework, integrated with MMSegmentation for semantic segmentation tasks.
-    Parameters: For this model, specific parameters such as learning rate, number of layers, filter sizes, and regularization techniques will be tuned based on initial experiments and validation performance.
-    Loss function: combined cross entropy loss and focal loss
-    Optimizational Algorithm: SGD
-    Leaning rate: 0.005
-    batch size: 2
-    iteration: 31000
-    Computing Environment: The experiments is conducted on a high-performance computing environment, likely equipped with GPUs to facilitate efficient training and evaluation of deep learning models.
-    Python 3.3
-    Pytorch 1.13
-    CUDA 11.7
+**Models**: The experiment will involve running models like DeepLab(v3) within the PyTorch framework, integrated with MMSegmentation for semantic segmentation tasks.
 
-3.                   Describe the problem setup (e.g., for neural networks, describe the network structure that you are going to use in the experiments).
+**Parameters**: For this model, specific parameters such as learning rate, number of layers, filter sizes, and regularization techniques will be tuned based on initial experiments and validation performance.
+
+Loss function: combined cross entropy loss and focal loss
+
+Optimizational Algorithm: SGD
+
+Leaning rate: 0.005
+
+batch size: 2
+
+iteration: 31000
+
+**Computing Environment**: The experiments is conducted on a high-performance computing environment, likely equipped with GPUs to facilitate efficient training and evaluation of deep learning models.
+
+Python 3.3
+
+Pytorch 1.13
+
+CUDA 11.7
+
+## 3. Describe the problem setup (e.g., for neural networks, describe the network structure that you are going to use in the experiments).
 
 This model will use atrous convolutions to capture multi-scale information and include an atrous spatial pyramid pooling module to robustly segment objects at multiple scales.
 
