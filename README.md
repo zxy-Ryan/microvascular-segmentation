@@ -267,10 +267,10 @@ In this project, I employed the DeepLab model for semantic segmentation of micro
 
 # 6. References: Put any links, papers, blog posts, or GitHub repositories that you have borrowed from/found useful here.
 
-https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature
-https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report
-https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023
-https://github.com/open-mmlab/mmsegmentation
-https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report#7.-Analysis-of-Validation-Result
-https://medium.com/@itberrios6/deeplabv3-c0c8c93d25a4
-https://arxiv.org/abs/1706.05587v3
+https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature<br/>
+https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report<br/>
+https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023<br/>
+https://github.com/open-mmlab/mmsegmentation<br/>
+https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report#7.-Analysis-of-Validation-Result<br/>
+https://medium.com/@itberrios6/deeplabv3-c0c8c93d25a4<br/>
+https://arxiv.org/abs/1706.05587v3<br/>
