@@ -106,8 +106,11 @@ https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023
 **Parameters**: For this model, specific parameters such as learning rate, number of layers, filter sizes, and regularization techniques will be tuned based on initial experiments and validation performance.
 
 Loss function: combined cross entropy loss and focal loss
+
 Cross Entropy Loss: ![image](https://github.com/zxy-Ryan/microvascular-segmentation/assets/37994411/71dd1e2a-6c41-47da-b615-444ac052184b)
+
 Focal Loss: ![image](https://github.com/zxy-Ryan/microvascular-segmentation/assets/37994411/6c00dd30-f37b-440b-9b52-e6c3f00b4af3)
+
 *Total Loss = Cross Entropy Loss + Focal Loss*
 
 Optimizational Algorithm: SGD
