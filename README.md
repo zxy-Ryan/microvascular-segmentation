@@ -1,35 +1,35 @@
 # Project Overview
 
-# 1. Introduction: Summarize your project report in several paragraphs.
+# 1 Introduction: Summarize your project report in several paragraphs.
 
-## 1. What is the problem?
+## 1.1 What is the problem?
 
 The primary goal is to enhance the understanding of human biology at the cellular level by mapping the human vasculature. This involves analyzing complex tissue images to identify and segment vascular structures accurately.
 The motivation behind this problem is to contribute to a more comprehensive human body map, aiding in medical research, disease diagnosis, and potential treatments.
 
-## 2. Why is this problem interesting?
+## 1.2 Why is this problem interesting?
 
 This problem is intriguing because it sits at the intersection of advanced image processing, machine learning, and critical biological research.
 Solving this problem could advance our understanding of various diseases, particularly those related to vascular health, and could eventually lead to breakthroughs in medical diagnostics and treatment strategies.
 
-## 3. What is the approach you propose to tackle the problem?
+## 1.3 What is the approach we propose to tackle the problem?
 
 The proposed approach involves semantic segmentation, a process of classifying each pixel in an image into a specific category (here, vascular or non-vascular).
 Semantic segmentation is chosen because of its effectiveness in detailed and granular image analysis, which is crucial for accurately mapping the intricate vasculature in human tissues.
 
-## 4. What is the rationale behind the proposed approach?
+## 1.4 What is the rationale behind the proposed approach?
 
 Semantic segmentation models like DeepLab(v3) is known for their accuracy in image segmentation tasks. These models can learn complex patterns in data, making them suitable for biomedical image analysis.
 This approach might be inspired by previous successful applications of semantic segmentation in medical imaging. It differs in its specific application to vasculature mapping and possibly in the fine-tuning of the model parameters and training process tailored to this unique dataset.
 
-## 5. What are the key components of my approach and results? Also, include any specific limitations.
+## 1.5 What are the key components of my approach and results? Also, include any specific limitations.
 
 The key components include the use of advanced convolutional neural networks for segmentation tasks, data preprocessing techniques for biomedical images, and possibly post-processing steps to refine the segmentation results.
-Limitations might include the potential for overfitting due to the highly specialized nature of the data, challenges in generalizing the model to different types of tissue images, and computational resource requirements.
+Limitations might include the potential for overfitting due to the highly specialized nature of the data, challenges in generalizing the model to different types of tissue images, and computational resource requirements. In addition, the nature of the dataset brings challenges for machine learning. In this dataset, there are tissue samples from the renal cortex, renal medulla, and renal papilla. The microvasculature structures are different in those three types of tissue. As tissue slices are 2D sections of 3D structures, the orientation of the cut may depict horizontal or vertical sections of nephron and vascular structures.
 
-# 2. Setup: Set up the stage for your experimental results.
+# 2 Setup: Set up the stage for your experimental results.
 
-## 1. Describe the dataset, including its basic statistics
+## 2.1 Describe the dataset, including its basic statistics
 
 The competition data comprises tiles extracted from five Whole Slide Images (WSI) split into two datasets. Tiles from Dataset 1 have annotations that have been expert reviewed. Dataset 2 comprises the remaining tiles from these same WSIs and contain sparse annotations that have not been expert reviewed.
 
@@ -99,7 +99,7 @@ https://www.kaggle.com/code/huangzeyuzheng/eda-for-hubmap-2023
 
 **Annotations**: The annotations are provided in polygons.jsonl, with 1633 unique IDs. The labels include blood vessel, glomerulus, and unsure, corresponding to the segmentations masks named mask.tif​​.
 
-## 2.Describe the experimental setup, including what models you are going to run, what parameters you plan to use, and what computing environment you will execute on.
+## 2.2 Describe the experimental setup, including what models you are going to run, what parameters you plan to use, and what computing environment you will execute on.
 
 **Models**: The experiment will involve running models like DeepLab(v3) within the PyTorch framework, integrated with MMSegmentation for semantic segmentation tasks.
 
@@ -123,16 +123,16 @@ Pytorch 1.13
 
 CUDA 11.7
 
-## 3. Describe the problem setup (e.g., for neural networks, describe the network structure that you are going to use in the experiments).
+## 2.3 Describe the problem setup (e.g., for neural networks, describe the network structure that you are going to use in the experiments).
 
 This model will use atrous convolutions to capture multi-scale information and include an atrous spatial pyramid pooling module to robustly segment objects at multiple scales.
 
 The figure below shows the basic architecture of a DeepLabv3 network, where the main blocks are just the backbone and the head. Each of the main blocks is comprised of sub-blocks.
 ![Example Image](images/Model.png)
 
-# 3. Results: Describe the results from your experiments.
+# 3 Results: Describe the results from your experiments.
 
-## 1. Main results: Describe the main experimental results you have; this is where you highlight the most interesting findings.
+## 3.1 Main results: Describe the main experimental results you have; this is where you highlight the most interesting findings.
 
 **Loss**
 
@@ -191,7 +191,7 @@ The comparison is as follows:
 ![Example Image](images/Seg4.png)
 ![Example Image](images/Seg5.png)
 
-## 2. Supplementary results:
+## 3.2 Supplementary results:
 
 Parameter choices
 
