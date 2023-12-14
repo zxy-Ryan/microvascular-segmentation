@@ -1,6 +1,20 @@
 # Project Overview
 Teammates(Xinyu Zhang, Jianhua Che, Tongyu Zhang)
 
+# How to use
+1.	Install prerequisites according to the MMsegmentation document at https://mmsegmentation.readthedocs.io/en/latest/get_started.html.
+2.	Download dataset at https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature/data
+3.	Convert .jsonl label to mask and split the dataset into training set and testing set using mytools4hubmap/json2mask.py
+4.	Compute the mean and std of the dataset for data normalization which will be used in the data preprocessing using mytools4hubmap/data_mean_std.py
+5.	Dataset is defined at myconfigs/_base_/datasets/hubmap.py
+6.	Model, parameters, and data pipeline is configured in the project configuration file myconfigs/_base_/models/deeplabv3_r50-d8.py
+7.	Run the training code using the command below:
+`python mytools4hubmap /train.py  ${CONFIG_FILE} [optional arguments]`
+8.	Run the testing code using the command below: 
+`python mytools4hubmap /test.py ${CONFIG_FILE} ${CHECKPOINT_FILE} [optional arguments]`
+9.	Run inference on customized dataset using the command below: mytools4hubmap/inference.py
+10.	Analyze loss using mytools4hubmap/analyze_logs.py
+
 # 1 Introduction: Summarize your project report in several paragraphs.
 
 ## 1.1 What is the problem?
