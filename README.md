@@ -8,9 +8,9 @@ Teammates(Xinyu Zhang, Jianhua Che, Tongyu Zhang)
 4.	Compute the mean and std of the dataset for data normalization which will be used in the data preprocessing using mytools4hubmap/data_mean_std.py
 5.	Dataset is defined at myconfigs/_base_/datasets/hubmap.py
 6.	Model, parameters, and data pipeline is configured in the project configuration file myconfigs/_base_/models/deeplabv3_r50-d8.py
-7.	Run the training code using the command below:
+7.	Run the training code using this command:
 `python mytools4hubmap /train.py  ${CONFIG_FILE} [optional arguments]`
-8.	Run the testing code using the command below: 
+8.	Run the testing code using this command: 
 `python mytools4hubmap /test.py ${CONFIG_FILE} ${CHECKPOINT_FILE} [optional arguments]`
 9.	Run inference on customized dataset using the command below: mytools4hubmap/inference.py
 10.	Analyze loss using mytools4hubmap/analyze_logs.py
