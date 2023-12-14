@@ -203,7 +203,7 @@ The comparison is as follows:
 | ----- | ---- | ---- | ------- |
 | IoU   | 0.36 | 0.37 | 0.43    |
 
-## 3.4 Segmentation Results**
+## 3.4 Segmentation Results
 ![Example Image](images/Seg1.png)
 ![Example Image](images/Seg2.png)
 ![Example Image](images/Seg3.png)
