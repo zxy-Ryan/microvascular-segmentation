@@ -126,7 +126,7 @@ Cross Entropy Loss: ![image](https://github.com/zxy-Ryan/microvascular-segmentat
 
 Focal Loss: ![image](https://github.com/zxy-Ryan/microvascular-segmentation/assets/37994411/6c00dd30-f37b-440b-9b52-e6c3f00b4af3)
 
-*Total Loss = Cross Entropy Loss + Focal Loss*
+*Total Loss = w1 * Cross Entropy Loss + w2 * Focal Loss*
 
 Optimizational Algorithm: SGD
 
