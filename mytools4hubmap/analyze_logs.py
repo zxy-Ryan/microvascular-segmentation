@@ -38,7 +38,7 @@ def plot_curve(log_dicts, args):
                 epoch_logs = log_dict[epoch]
                 if metric not in epoch_logs.keys():
                     continue
-                if metric in ['mIoU', 'mAcc', 'aAcc']:
+                if metric in ['loss', 'mIoU', 'mAcc', 'aAcc']:
                     plot_epochs.append(epoch)
                     plot_values.append(epoch_logs[metric][0])
                 else:
@@ -47,7 +47,7 @@ def plot_curve(log_dicts, args):
                         plot_values.append(epoch_logs[metric][idx])
             ax = plt.gca()
             label = legend[i * num_metrics + j]
-            if metric in ['mIoU', 'mAcc', 'aAcc']:
+            if metric in ['loss', 'mIoU', 'mAcc', 'aAcc']:
                 # ax.set_xticks(range(min(plot_epochs), max(plot_epochs) + 1, 5000))
                 plt.xlabel('iter')
                 plt.plot(plot_epochs, plot_values, label=label, marker='o')
@@ -56,18 +56,22 @@ def plot_curve(log_dicts, args):
                 plt.xlabel('iter')
                 plt.plot(plot_iters, plot_values, label=label, linewidth=0.5)
 
-            # if plot_values:
-            #     min_value = min(plot_values)
-            #     min_index = plot_values.index(min_value)
-            #     min_x = plot_epochs[min_index] if metric in ['mIoU', 'mAcc', 'aAcc'] else plot_iters[min_index]
-            #     plt.scatter(min_x, min_value, color='red', marker='*', s=100)  # 星号标记
-            #     plt.annotate(f'{min_x}', xy=(min_x, min_value), xytext=(min_x + 0.05, min_value),
-            #                  textcoords='offset points', fontsize=8)
+            if args.plot_type == 'loss':
+                min_value = min(plot_values)
+                min_index = plot_values.index(min_value)
+                min_x = plot_epochs[min_index] if metric in ['loss', 'mIoU', 'mAcc', 'aAcc'] else plot_iters[min_index]
+                if j==0:
+                    print("The minimum loss is " + str(min_value))
+                    print("The iteration gained the minimum loss is " + str(min_x))
 
-            if plot_values:
+                plt.scatter(min_x, min_value, color='red', marker='*', s=100)  # 星号标记
+                plt.annotate(f'{min_x}', xy=(min_x, min_value), xytext=(min_x + 0.05, min_value),
+                             textcoords='offset points', fontsize=8)
+
+            if args.plot_type == 'acc':
                 max_value = max(plot_values)
                 max_index = plot_values.index(max_value)
-                max_x = plot_epochs[max_index] if metric in ['mIoU', 'mAcc', 'aAcc'] else plot_iters[max_index]
+                max_x = plot_epochs[max_index] if metric in ['loss', 'mIoU', 'mAcc', 'aAcc'] else plot_iters[max_index]
                 plt.scatter(max_x, max_value, color='red', marker='*', s=100, zorder=3)  # 星号标记
                 plt.annotate(f'{max_x}', xy=(max_x, max_value), xytext=(max_x + 0.05, max_value),
                              textcoords='offset points', fontsize=8)
@@ -137,13 +141,17 @@ def load_json_logs(json_logs):
 
 def main():
     args = parse_args()
-    args.json_logs = ['../result/mmseg_result/hubmap/deeplabv3/20231201_013349/vis_data/scalars.json']
+
+    # args.json_logs = ['../result/mmseg_result/hubmap/deeplabv3/20231201_013349/vis_data/scalars.json']
     # args.keys = ['loss', 'decode.loss_ce', 'decode.loss_focal']
     # args.legend = ['loss', 'decode.loss_ce', 'decode.loss_focal']
-    # args.out = '../result/mmseg_result/hubmap/deeplabv3/20231201_013349/vis_data/loss.png'
-    args.keys = ['aAcc', 'mDice', 'mAcc']
-    args.legend = ['aAcc', 'mDice', 'mAcc']
-    args.out = '../result/mmseg_result/hubmap/deeplabv3/20231201_013349/vis_data/acc.png'
+    # args.out = '../result/mmseg_result/hubmap/swin-transformer/20231203_111418/vis_data/loss.png'
+    # args.plot_type = 'loss'
+
+    # args.keys = ['aAcc', 'mDice', 'mAcc']
+    # args.legend = ['aAcc', 'mDice', 'mAcc']
+    # args.out = '../result/mmseg_result/hubmap/swin-transformer/20231203_111418/vis_data/acc.png'
+    # args.plot_type = 'acc'
     json_logs = args.json_logs
     for json_log in json_logs:
         assert json_log.endswith('.json')
