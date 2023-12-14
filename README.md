@@ -155,14 +155,14 @@ The figure below shows the basic architecture of a DeepLabv3 network, where the 
 
 ## 3.1 Main results: Describe the main experimental results you have; this is where you highlight the most interesting findings.
 
-**Loss**
+### 3.1.1 Loss
 
 ![Example Image](images/Loss.png)
 
 Minimum Loss: 0.035
 Minimum Loss Iter: 26050
 
-**Accuracy**
+### 3.1.2 Accuracy
 
 To evaluate the accuracy of the performance, we used 3 types of scores: aAcc, mDice, and mAcc.
 
@@ -191,7 +191,7 @@ Total Accuracy:
 
 aAcc: 96.1800 mDice: 85.8300 mAcc: 87.9200
 
-**Comparison with other models**
+### 3.1.3 Comparison with other models
 
 We compared our result with others' results on the same dataset. https://www.kaggle.com/code/hidetaketakahashi/hubmap-segmentation-report#7.-Analysis-of-Validation-Result
 
