@@ -43,11 +43,8 @@ def plot_data(blood_vessel_first, blood_vessel_second, glomerulus_first, glomeru
     plt.show()
 
 
-# 替换以下路径为您的 .log 文件的实际路径
 log_file_path = '../result/mmseg_result/hubmap/deeplabv3/20231201_013349/20231201_013349.log'
 
-# 从log文件提取数据
 bv_first, bv_second, gl_first, gl_second = extract_data_from_log(log_file_path)
 
-# 绘制数据
 plot_data(bv_first, bv_second, gl_first, gl_second)
