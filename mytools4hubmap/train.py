@@ -55,8 +55,8 @@ def main():
     args = parse_args()
     # args.config = './myconfigs/deeplabv3/deeplabv3_r50-d8_4xb4-hubmap-512x512.py'
     # args.work_dir = '../result/mmseg_result/hubmap/deeplabv3'
-    args.config = './myconfigs/convnext/convnext-small_upernet_8xb2-hubmap-512x512.py'
-    args.work_dir = '../result/mmseg_result/hubmap/convnext'
+    # args.config = './myconfigs/convnext/convnext-small_upernet_8xb2-hubmap-512x512.py'
+    # args.work_dir = '../result/mmseg_result/hubmap/convnext'
 
     # load config
     cfg = Config.fromfile(args.config)
